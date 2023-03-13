@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!---Coding By CoderGirl!--->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> An About Us Page | CoderGirl </title>
+  <!---Custom Css File!--->
+  <link rel="stylesheet" href="aboutus.css">
+  <nav>
+    <div></div>
+    <div class="nav-content">
+      <div class="logo">
+        <a href="file:///Users/kylee/Downloads/navbar.html"><img src="http://proe70adab2.pic6.ysjianzhan.cn/upload/Impactlogo.png" class="logoimg" ></a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="file:///Users/kylee/Downloads/navbar.html">HOME</a></li>
+        <li><a href="aboutus.html">ABOUT</a></li>
+        <li><a href="file:///Users/kylee/Desktop/CS%20IA/main2.html">QUIZ</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+</head>
+<body>
+  <section class="about-us">
+    <div class="about">
+      <img src="https://ts1.cn.mm.bing.net/th/id/R-C.c243264b66a2a1feda72d37f96132c6a?rik=j50TLJugHbQFIg&pid=ImgRaw&r=0" class="pic">
+      <div class="text">
+        <h2>About Us</h2>
+        <h5>Company Information & <span>Motivation</span></h5>
+          <p>(this is where the company would input their details) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita natus ad sed harum itaque ullam enim quas, veniam accusantium, quia animi id eos adipisci iusto molestias asperiores explicabo cum vero atque amet corporis! Soluta illum facere consequuntur magni. Ullam dolorem repudiandae cumque voluptate consequatur consectetur, eos provident necessitatibus reiciendis corrupti!</p>
+      </div>
+    </div>
+  </section>
+</body>
+
+
+  <script>
+  let nav = document.querySelector("nav");
+    window.onscroll = function() {
+      if(document.documentElement.scrollTop > 20){
+        nav.classList.add("sticky");
+      }else {
+        nav.classList.remove("sticky");
+      }
+    }
+
+  </script>
+</html>
+

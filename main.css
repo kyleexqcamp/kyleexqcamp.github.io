@@ -1,0 +1,180 @@
+ width: 100%;
+  padding: 30px;
+  transition: all 0.4s ease;
+}
+
+nav {
+    display: flex ;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10rem 10rem;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    width: 100%;
+    transition: 0.6s;
+    height: 50px;
+  }
+
+
+html,
+body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
+nav .nav-content{
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: ghostwhite;
+}
+
+nav.sticky .logo a{
+  color: #fff;
+}
+.nav-content .nav-links{
+  display: flex;
+}
+.nav-content .nav-links li{
+  list-style: none;
+  margin: 0 8px;
+}
+ .nav-links li a{
+  text-decoration: none;
+  color: #142c6c;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 4px;
+  transition: all 0.3s ease;
+}
+
+ .nav-links li a:hover{
+   color: #d3312c;
+
+}
+ nav.sticky .nav-links li a:hover{
+  color: #0E2431;
+}
+
+h2{
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: #142c6c;
+}
+
+nav img{
+        height: 50px;
+        width: 300px;
+        max-height: 40%;
+        max-width: 40%;
+        overflow: hidden;
+        padding: 5px;
+        float: left;
+        margin-left: 10px;
+        list-style: wrap;
+        align-items: center;
+        
+     }
+}
+
+
+.prompt {
+	display: block;
+	font-size: 20px;
+}
+
+.btn {
+	margin: 0 20px 0 20px;
+}
+
+.btn-strongly-agree {
+	color: #89d298;
+	font-weight: bold;
+}
+
+.btn-strongly-agree.active,
+.btn-strongly-agree:active,
+.btn-strongly-agree:focus,
+.btn-strongly-agree:active:focus,
+.btn-strongly-agree.active:focus,
+.btn-strongly-agree:hover
+ {
+	background-color: #89d298;
+}
+
+.btn-agree {
+	color: #89d298;
+}
+
+.btn-agree.active,
+.btn-agree:active,
+.btn-agree:focus,
+.btn-agree:active:focus,
+.btn-agree.active:focus,
+.btn-agree:hover {
+	background-color: rgba(137, 210, 152, 0.5);
+}
+
+.btn-disagree {
+	color: #e28181;
+}
+
+.btn-disagree.active,
+.btn-disagree:active,
+.btn-disagree:focus,
+.btn-disagree:active:focus,
+.btn-disagree.active:focus,
+.btn-disagree:hover {
+	background-color: rgba(226, 129, 129, 0.5);
+}
+
+.btn-strongly-disagree {
+	color: #e28181;
+	font-weight: bold;
+}
+
+.btn-strongly-disagree.active,
+.btn-strongly-disagree:active,
+.btn-strongly-disagree:focus,
+.btn-strongly-disagree:active:focus,
+.btn-strongly-disagree.active:focus,
+.btn-strongly-disagree:hover {
+	background-color: #e28181;
+}
+
+.bottom {
+	margin-bottom: 100px;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+/* RESULTS */
+.results {
+	margin-bottom: 40px;
+	margin-top: 40px;
+}cs

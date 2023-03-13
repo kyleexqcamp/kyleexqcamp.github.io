@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+ width: 100%;
+  padding: 20px;
+  transition: all 0.4s ease;
+}
+
+
+nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4rem 5rem;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    width: 100%;
+    transition: 0.6s;
+  }
+
+
+html,
+body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
+nav .nav-content{
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: ghostwhite;
+}
+
+nav.sticky .logo a{
+  color: #fff;
+}
+.nav-content .nav-links{
+  display: flex;
+}
+.nav-content .nav-links li{
+  list-style: none;
+  margin: 0 8px;
+}
+ .nav-links li a{
+  text-decoration: none;
+  color: #142c6c;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 4px;
+  transition: all 0.3s ease;
+}
+
+ .nav-links li a:hover{
+   color: #d3312c;
+
+}
+ nav.sticky .nav-links li a:hover{
+  color: #0E2431;
+}
+
+h2{
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: #142c6c;
+}
+
+nav img{
+        height: 50px;
+        width: 300px;
+        max-height: 40%;
+        max-width: 40%;
+        overflow: hidden;
+        padding: 5px;
+        float: left;
+        margin-left: 10px;
+        list-style: wrap;
+        align-items: center;
+        
+     }
+}
+
+h2{
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: #4070f4;
+}
+
+.text{
+  text-align: justify;
+  padding: 20px 40px;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.text2{
+  text-align: center;
+  padding: 20px 20px;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  font-size: large;
+  background: cornsilk;
+}
+
+
+.about-us{
+  height: 100vh;
+  width: 100%;
+  padding: 30px 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  
+}
+.pic{
+  padding: 10px 50px;
+  height: 75vh;
+  width:  50%;
+}
+.about{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: whitesmoke;
+}
+.text{
+  width: 540px;
+}
+.text h2{
+  font-size: 75px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.text h5{
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+span{
+  color: #d3312c;
+}
+.text p{
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+
+.data{
+  margin-top: 30px;
+}
+
+.hire{
+  font-size: 18px;
+  background: #4070f4;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 8px 25px;
+  border-radius: 6px;
+  transition: 0.5s;
+}
+
+.hire:hover{
+  background: #000;
+  border: 1px solid #4070f4;
+}
+ 
