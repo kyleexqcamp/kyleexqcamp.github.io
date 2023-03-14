@@ -3,25 +3,22 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Personality Test</title>
-	<!-- ANIMATE CSS -->
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	    <link rel="stylesheet" href="main.css">
-	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
-<!-- BODY -->
 <body>
  <nav>
   	<div></div>
     <div class="nav-content">
       <div class="logo">
-        <a href="file:///Users/kylee/Downloads/navbar.html"><img src="http://proe70adab2.pic6.ysjianzhan.cn/upload/Impactlogo.png" class="logoimg" ></a>
+        <a href="index.html"><img src="http://proe70adab2.pic6.ysjianzhan.cn/upload/Impactlogo.png" class="logoimg" ></a>
       </div>
       <ul class="nav-links">
-        <li><a href="file:///Users/kylee/Downloads/navbar.html">HOME</a></li>
-        <li><a href="file:///Users/kylee/Downloads/aboutus.html">ABOUT</a></li>
-        <li><a href="main.html">QUIZ</a></li>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="aboutus.html">ABOUT</a></li>
+        <li><a href="main2.html">QUIZ</a></li>
         <li><a href="#">CONTACT</a></li>
       </ul>
     </div>
@@ -50,19 +47,10 @@
 	</div>
 	</body>
 </html>
-	<!-- SCRIPTS -->
-
-	<!-- JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<!-- BOOTSTRAP -->
-	<!-- Latest compiled and minified JavaScript -->
+	
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<!-- CUSTOM -->
 	<script type="text/javascript">// A personality quiz
-
-// This is an array of objects that stores the personality trait that is prompted to the user and the weight for each prompt. 
-// If a personality trait is considered more introverted, it will have a negative weight.
-// If a personlity trait is considered more extroverted, it will have a positive weight.
 
 var prompts = [
 {
@@ -128,9 +116,6 @@ var prompts = [
 
 ]
 
-// This array stores all of the possible values and the weight associated with the value. 
-// The stronger agreeance/disagreeance, the higher the weight on the user's answer to the prompt.
-var prompt_values = [
 {
 	value: 'Strongly Agree', 
 	class: 'btn-default btn-strongly-agree',
@@ -151,9 +136,8 @@ var prompt_values = [
 	class: 'btn-default btn-strongly-disagree',
 	weight: -5
 }
-]
 
-// For each prompt, create a list item to be inserted in the list group
+
 function createPromptItems() {
 
 	for (var i = 0; i < prompts.length; i++) {
@@ -168,22 +152,6 @@ function createPromptItems() {
 		document.getElementById('quiz').appendChild(prompt_li);
 	}
 }
-
-// For each possible value, create a button for each to be inserted into each li of the quiz
-// function createValueButtons() {
-	
-// 	for (var li_index = 0; li_index < prompts.length; li_index++) {
-// 		for (var i = 0; i < prompt_values.length; i++) {
-// 			var val_button = document.createElement('button');
-// 			var val_text = document.createTextNode(prompt_values[i].value);
-
-// 			val_button.setAttribute('class', 'value-btn btn ' + prompt_values[i].class);
-// 			val_button.appendChild(val_text);
-
-// 			document.getElementsByClassName('prompt')[li_index].appendChild(val_button);
-// 		}
-// 	}
-// }
 function createValueButtons() {
 	for (var li_index = 0; li_index < prompts.length; li_index++) {
 		var group = document.createElement('div');
@@ -209,11 +177,8 @@ function createValueButtons() {
 createPromptItems();
 createValueButtons();
 
-// Keep a running total of the values they have selected. If the total is negative, the user is introverted. If positive, user is extroverted.
-// Calculation will sum all of the answers to the prompts using weight of the value * the weight of the prompt.
 var total = 0;
 
-// Get the weight associated to group number
 function findPromptWeight(prompts, group) {
 	var weight = 0;
 
@@ -226,7 +191,6 @@ function findPromptWeight(prompts, group) {
 	return weight;
 }
 
-// Get the weight associated to the value
 function findValueWeight(values, value) {
 	var weight = 0;
 
@@ -239,29 +203,18 @@ function findValueWeight(values, value) {
 	return weight;
 }
 
-// When user clicks a value to agree/disagree with the prompt, display to the user what they selected
 $('.value-btn').mousedown(function () {
 	var classList = $(this).attr('class');
-	// console.log(classList);
 	var classArr = classList.split(" ");
-	// console.log(classArr);
 	var this_group = classArr[0];
-	// console.log(this_group);
 
-	// If button is already selected, de-select it when clicked and subtract any previously added values to the total
-	// Otherwise, de-select any selected buttons in group and select the one just clicked
-	// And subtract deselected weighted value and add the newly selected weighted value to the total
 	if($(this).hasClass('active')) {
 		$(this).removeClass('active');
 		total -= (findPromptWeight(prompts, this_group) * findValueWeight(prompt_values, $(this).text()));
 	} else {
-		// $('[class='thisgroup).prop('checked', false);
 		total -= (findPromptWeight(prompts, this_group) * findValueWeight(prompt_values, $('.'+this_group+'.active').text()));
-		// console.log($('.'+this_group+'.active').text());
 		$('.'+this_group).removeClass('active');
 
-		// console.log('group' + findValueWeight(prompt_values, $('.'+this_group).text()));
-		// $(this).prop('checked', true);
 		$(this).addClass('active');
 		total = findValueWeight(prompt_values, $(this).text());
 	}
@@ -273,32 +226,32 @@ $('.value-btn').mousedown(function () {
 
 
 $('#submit-btn').click(function () {
-	// After clicking submit, add up the totals from answers
-	// For each group, find the value that is active
 	$('.results').removeClass('hide');
 	$('.results').addClass('show');
 	
 	if( -3 == total) {
-		// document.getElementById('intro-bar').style.width = ((total / 60) * 100) + '%';
-		// console.log(document.getElementById('intro-bar').style.width);
-		// document.getElementById('intro-bar').innerHTML= ((total / 60) * 100) + '%';
-		document.getElementById('results').innerHTML = total + '<h1>You are direct !</h1><br><br>\
-		A Direct Communication Style is clear, concise, and unfiltered. There is no hidden message and no subtlety. People with a direct communication style prefer clear and actionable information without any “fluff”. They want to get to the point quickly and want others to do the same.\n\
+		if( -3 == total) {
+		document.getElementById('results').innerHTML = 
+
+'<h1>You are Spirited!</h1><br><br>\
+		You can spot a Spirited communicator by their animated and fast-paced speech, often punctuated by large gestures. They tell stories and anecdotes with gusto, and may go off on tangents. They are warm, laugh out loud, and use lots of facial expressions.\n\
 <br><br>\
-People with this style are typically known as being aggressive or assertive in the way they communicate with others. They can dominate a conversation either in an individual or group setting.\n\n\
+People with the spirited communication style are very interested in the ‘big picture’. They are the dreamers, the inventors, and the innovators in the group. Their communication may be full of grand ideas and hyperboles that tend to be very persuasive to others at first.\n\n\
 <br><br>\
-One of the benefits of this communication style is you know exactly where you stand with that person. They will tell you their exact thoughts and feelings about a topic.\
-		';
-	} else if( 3 == total) {
-		document.getElementById('results').innerHTML = total + '<h1>You are systematic!</h1><br><br>\
-		On the opposite side of the coin, people who are extroverted are energized by people. They usually enjoy spending time with others, as this is how they recharge from time spent alone focusing or working hard.\
+However, they are not always very good at discussing the details or the exact steps in the process. They will tend to go off on tangent sin their conversations, and like to interject anecdote sin to their dialogues in order to demonstrate or drive home a point. Keeping to an agenda is sometimes a challenge for those with the spirited communication styles inceboth time management and remaining focuse dare challenges forth is group. Their written or verbal communication may tend to wards the dramatic. While they can be very entertaining, getting them to communicate clearly on specific topics may take the assistance of someone else to guide them through a conversation and keep them on track by bringing them back to the subject at hand.';
+
+} else if( 3 == total) {
+		document.getElementById('results').innerHTML = 
+'<h1>You are systematic!</h1><br><br>\
+		Those with a systematic communication style like to focus on facts and details rather than opinions and possibilities. Expect to use and appreciate logic when you communicate with a systematic. They will appreciate facts and analysis rather than the ‘big picture’ ideas that have not yet been proved useful.\
 <br><br>\
-I like how this extrovert explains the way he/she gains energy from being around other people:\
+They may be slower to respond to your communication, as they are probably analyzing the situation and constructing a logical, well thought-out response. Charts, graphs and trends are all useful tools for communicating with systematic as well.\
 <br><br>\
-When I am among people, I make eye contact, smile, maybe chat if there’s an opportunity (like being stuck in a long grocery store line). As an extrovert, that’s a small ‘ping’ of energy, a little positive moment in the day.';
+Those with a systematic communication style are uncomfortable with expressing their feelings about things and do not like conflict. They may tend to shut down communication rather than dealing with emotional or confrontational situations. If you give them directions, you will need to be very thorough and precise in relaying them.';
 	}
 	else if( 5 == total) {
-		document.getElementById('results').innerHTML = total + '<h1>You are Spirited !</h1><br><br>\
+		document.getElementById('results').innerHTML =
+'<h1>You are direct!</h1><br><br>\
 		A Direct Communication Style is clear, concise, and unfiltered. There is no hidden message and no subtlety. People with a direct communication style prefer clear and actionable information without any “fluff”. They want to get to the point quickly and want others to do the same.\n\
 <br><br>\
 People with this style are typically known as being aggressive or assertive in the way they communicate with others. They can dominate a conversation either in an individual or group setting.\n\n\
@@ -306,21 +259,21 @@ People with this style are typically known as being aggressive or assertive in t
 One of the benefits of this communication style is you know exactly where you stand with that person. They will tell you their exact thoughts and feelings about a topic.';
 
 	} else if ( total == -5) {
-		document.getElementById('results').innerHTML = total + '<h1>You are considerate!</h1><br><br>\
-		Since introverts and extroverts are the extremes of the scale, the rest of us fall somewhere in the middle. Many of us lean one way or the other, but there are some who are quite balanced between the two tendencies. These people are called ambiverts.\
+		document.getElementById('results').innerHTML = 
+'<h1>You are considerate!</h1><br><br>\
+		Those with the considerate communication style are very concerned about the feelings of others. They want to please other people and to be included in her peer group. They like to work with others, help others, and connect to the reason personal level. If there is conflicting your group, they will be the ones to attempt to mediate it. They want everyone to have the chance to speak their minds, have their turns, and receiver recognition for their contribution. They are natural trainers and counselors, and enjoy helping others succeed. They will encourage group collaboration and communication, though they are not always inclined to speak their own minds.\
 <br><br>\
-So let’s look at how an ambivert compares.\
+This is the major communication challenge for those with the considerate personality style– they may be reluctant to share an opposing opinion, even if it’s important information, because they are concerned about keeping the peace and being liked.\
 <br><br>\
-Ambiverts exhibit both extroverted and introverted tendencies. This means that they generally enjoy being around people, but after a long time this will start to drain them. Similarly, they enjoy solitude and quiet, but not for too long. Ambiverts recharge their energy levels with a mixture of social interaction and alone time.'
+They are also inclined to take direct communication as a personal matter. It’s difficult for them to separate other peoples’ opinions about a topic from their opinions about them, and so may feel that an opposing opinion is due to not liking them. There is also the possibility that they will be talked into something in order to preserve the peace rather than standing their ground.';
+
 	} else { total; }
 
-	// Hide the quiz after they submit their results
 	$('#quiz').addClass('hide');
 	$('#submit-btn').addClass('hide');
 	$('#retake-btn').removeClass('hide');
-})
+}
 
-// Refresh the screen to show a new quiz if they click the retake quiz button
 $('#retake-btn').click(function () {
 	$('#quiz').removeClass('hide');
 	$('#submit-btn').removeClass('hide');
